@@ -201,6 +201,32 @@ def delete_one(_id):
     # otherwise 200 - OK
     return "OK", status.HTTP_200_OK
 
+@app.route('/delete/first', methods=['DELETEF'])
+def delete_first():
+    """
+    DELETE (Delete)
+    """
+    # log that we are running the delete operation
+    print('Delete - DELETEF')
+
+    # find data in database BY using the id
+    item = ItemModel.query.filter_by(_id=int(1)).first()
+
+    try:
+        # deleting item from database by id
+        db.session.delete(item)
+        db.session.commit()
+    except exc.SQLAlchemyError as err:
+        # if there is an error, send back the error (0 to match previous API implementation)
+        print(f'Deleted item id: 0')
+
+    else:
+        # log the item ID being returned
+        print(f'Deleted item id: {_id}')
+
+    # otherwise 200 - OK
+    return "OK", status.HTTP_200_OK
+
 
 # module import protection
 if __name__ == '__main__':
