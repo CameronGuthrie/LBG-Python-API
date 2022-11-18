@@ -201,7 +201,7 @@ def delete_one(_id):
     # otherwise 200 - OK
     return "OK", status.HTTP_200_OK
 
-@app.route('/deletef', methods=['DELETEF'])
+@app.route('/delete/first', methods=['DELETEF'])
 def delete_first():
     """
     DELETE (Delete)
