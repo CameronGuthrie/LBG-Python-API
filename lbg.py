@@ -2,9 +2,6 @@
 LBG learning-oriented CRUD-based RESTful API using standard Flask routing
 """
 
-#Update to program to then upload to github
-
-
 # import Flask microframework and associated tools
 from flask import Flask, request, jsonify
 from flask_api import status
@@ -40,7 +37,7 @@ def item_builder(item_name: str, item_description: str, item_price: float, item_
     uses standard library dictionary to create an item object
     """
     item: dict[str | int | float] = {
-        "name of item": item_name,
+        "name": item_name,
         "description": item_description,
         "price": item_price,
         "_id": item_id,
